@@ -1,0 +1,8 @@
+{
+  "modules" : { 
+    "minuteurmathilde"  : {
+      "description": "Permet de mettre une minuterie de n'importe quelle temps",
+      "version"    : "1"
+    }
+  }
+}

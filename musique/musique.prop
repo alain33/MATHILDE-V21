@@ -1,0 +1,9 @@
+{
+  "modules": { 
+    "musique": {
+      "description": "Plugin pour musique",
+      "version": "0.2"
+      
+    }
+  }
+}

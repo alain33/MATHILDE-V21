@@ -1,0 +1,9 @@
+{
+  "modules": { 
+    "mathildeurl": {
+      "description": "Plugin pour ouverture d'url",
+      "version": "0.2"
+      
+    }
+  }
+}

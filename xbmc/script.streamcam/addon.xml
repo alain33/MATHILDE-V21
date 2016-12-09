@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<addon id="script.streamcam"
+       name="streamcam"
+       version="1.2"
+       provider-name="Mad Rippeur et Jérôme Veyret">
+  <requires>
+    <import addon="xbmc.python" version="2.1.0"/>
+ </requires>
+ <extension point="xbmc.python.script" library="streamcam.py">
+  <provides>image</provides>
+ </extension>
+ <extension point="xbmc.addon.metadata">
+    <platform>all</platform>
+    <summary lang="en">stream Camera</summary>
+    <description lang="en">stream Camera</description>
+    <summary lang="fr">stream Camera</summary>
+    <description lang="fr">Stream d'images d'une ou plusieurs caméras, avec de differentes tailles et positions à l'écran.</description>
+  </extension>
+</addon>

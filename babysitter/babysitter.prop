@@ -1,0 +1,9 @@
+{
+  "modules" : { 
+    "babysitter"  : {
+      "description": "babysitter",
+	  "answers"    : "Je m'en occupe !|Voilà, à nous les petis !|Vous êtes prés les enfants ? |Installez-vous je vais vous raconter une histoire. |bonjour les enfants je vais m'occuper de vous !",
+      "version": "1.0"
+    }
+  }
+}

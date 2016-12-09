@@ -1,0 +1,9 @@
+{
+  "modules": { 
+    "radio": {
+      "description": "Plugin pour radio web",
+      "version": "0.2"
+      
+    }
+  }
+}

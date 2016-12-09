@@ -1,0 +1,135 @@
+	<grammar version="1.0" xml:lang="fr-FR" mode="voice" root="rulejarvis" xmlns="http://www.w3.org/2001/06/grammar" tag-format="semantics/1.0">
+  <rule id="rulejarvis" scope="public">
+    <tag>out.action=new Object(); </tag>
+
+    <item>Sarah</item>
+
+    <one-of>
+	
+	<item>tu es là<tag>out.action.val="la"</tag></item>
+	
+	<!-- affichage écran -->
+      	 
+ 	  <item>affiche le bureau<tag>out.action.val="minimize"</tag></item>
+ 	  <item>va sur le bureau<tag>out.action.val="minimize"</tag></item>
+	 
+	  <item>restore<tag>out.action.val="restore"</tag></item>
+	  <item>affiche les fenetres<tag>out.action.val="restore"</tag></item>
+	  
+	  	  
+	  
+	  <!-- page internet -->
+	  <item>actualise<tag>out.action.val="f5"</tag></item>
+	  <item>raffraichis<tag>out.action.val="f5"</tag></item>
+	  <item>met a jour<tag>out.action.val="f5"</tag></item>
+	  
+	  
+	  <item>lance ta page de conf<tag>out.action.val="home"</tag></item>
+	  <item>affiche le home<tag>out.action.val="home"</tag></item>
+	  <item>fais voir le home<tag>out.action.val="home"</tag></item>
+	  
+	  <item>affiche le store<tag>out.action.val="store"</tag></item>
+	  <item>fait voir le store<tag>out.action.val="store"</tag></item>
+	  
+
+	  <item>ferme l'onglet<tag>out.action.val="f4"</tag></item>
+	
+	  
+	  		
+	  
+	  <item>forum<tag>out.action.val="forum"</tag></item>
+	  
+	  
+	  <item>youtube<tag>out.action.val="youtube"</tag></item>
+	 
+	  <item>communauté<tag>out.action.val="com"</tag></item>
+	  
+	  <!-- dossier explorateur -->
+	  <item>affiche les pluguine<tag>out.action.val="plugins"</tag></item>
+	  
+	  
+	  <item>dossier<tag>out.action.val="dossier"</tag></item>
+	
+	  
+	  <item>affiche mes images<tag>out.action.val="images"</tag></item>
+	  <item>fait  voir mes images<tag>out.action.val="images"</tag></item>
+	  <item>affiche les images<tag>out.action.val="images"</tag></item>
+	  <item>fait  voir images<tag>out.action.val="images"</tag></item>
+	  <item>fais voir les images<tag>out.action.val="images"</tag></item>
+	  <item>fais voir mes images<tag>out.action.val="images"</tag></item>
+	  
+	  <item>documents<tag>out.action.val="documents"</tag></item>
+	
+	  
+	  
+	  <item>afficher les téléchargements<tag>out.action.val="dl"</tag></item>
+	 
+	  
+	  <item>affiche les disk<tag>out.action.val="ordinateur"</tag></item>
+	  <item>fais voir les disk<tag>out.action.val="ordinateur"</tag></item>
+
+
+	<!-- lancement fermeture de logiciels -->
+	 
+	  
+	
+	  
+	  
+	 
+	  
+	  	  
+	  
+	  <!-- suivant précedent sauvegarde ferme... -->
+	  <item>préçedent<tag>out.action.val="precedent"</tag></item>
+	  <item>suivant<tag>out.action.val="next"</tag></item><item>préçedent<tag>out.action.val="precedent"</tag></item>
+	  <item>valide<tag>out.action.val="enter"</tag></item>
+	 
+	  <item>fenêtre suivante<tag>out.action.val="tab"</tag></item>
+	 
+	  
+
+	  
+	 
+	<!-- gestion du PC --> 
+	  <item>éteind le PC<tag>out.action.val="runshutdown"</tag></item>
+	
+	  <item>éteind l'ordinateur<tag>out.action.val="runshutdown"</tag></item>
+	  <item>arrête le PC<tag>out.action.val="runshutdown"</tag></item>
+	  <item>arrête l'ordinateur<tag>out.action.val="runshutdown"</tag></item>
+	  
+	  <item>redémar le PC<tag>out.action.val="runrestart"</tag></item>
+	  <item>redémar l'ordinateur<tag>out.action.val="runrestart"</tag></item>
+	 
+	
+	  
+	 
+	  
+	  <!-- redémarage du serveur node + client micro-->
+	  <item>système<tag>out.action.val="runreboot"</tag><tag>out.action._attributes.tts = "je relance mon système"</tag></item>
+	 
+	 <!-- gestion des périphériques -->
+	 
+	 <item>réveille-toi<tag>out.action.val="enter"</tag></item>
+	 <item>revient<tag>out.action.val="enter"</tag></item>
+	 
+	 <item>éteint l'écran<tag>out.action.val="screenOff"</tag></item>
+	 <item>allume l'écran<tag>out.action.val="screenOn"</tag></item>
+	 
+	 <item>ouvre le Dévédé<tag>out.action.val="dvdon"</tag></item>
+	 <item>ferme le Dévédé<tag>out.action.val="dvdoff"</tag></item>
+	 <item>ouvre le lecteur<tag>out.action.val="dvdon"</tag></item>
+	 <item>ferme le lecteur<tag>out.action.val="dvdoff"</tag></item>
+	 
+	 
+
+	 <item>ajuste le micro<tag>out.action.val="microadjust"</tag></item>
+
+	 <!-- bras robot-->
+	 
+	 	 
+
+    </one-of>
+
+    <tag>out.action._attributes.uri="http://127.0.0.1:8080/sarah/jarvis";</tag>
+  </rule> 
+</grammar>

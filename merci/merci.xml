@@ -1,0 +1,16 @@
+<grammar version="1.0" xml:lang="fr-FR" mode="voice" root="rulemerci" xmlns="http://www.w3.org/2001/06/grammar" tag-format="semantics/1.0">
+  <rule id="rulemerci" scope="public">
+    <example>Sarah dit : De rien mec</example>
+    <tag>out.action=new Object(); </tag>
+<item>Sarah</item>
+    <one-of>
+
+    <item>merci</item>
+   <item>remercie</item>
+  
+
+    </one-of>
+
+    <tag>out.action._attributes.uri="http://127.0.0.1:8080/sarah/merci";</tag>
+  </rule>
+</grammar>

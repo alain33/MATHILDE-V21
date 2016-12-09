@@ -1,0 +1,9 @@
+{
+  "modules": { 
+    "epeler": {
+      "description": "Plugin pour epeler un mot",
+      "version": "0.2"
+      
+    }
+  }
+}

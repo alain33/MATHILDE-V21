@@ -1,0 +1,17 @@
+﻿<grammar version="1.0" xml:lang="fr-FR" mode="voice" root="ruleMeteo" xmlns="http://www.w3.org/2001/06/grammar" tag-format="semantics/1.0">
+  <rule id="ruleMeteo" scope="public">
+    <example>loona occupe toi des enfants ?</example>
+    <tag>out.action=new Object(); </tag>
+    
+    <item>sarah</item>
+    
+    <one-of>
+	<item>fait cela</item>
+      <item>occupe toi des enfants</item>
+      <item>amuse les petis</item>
+      <item>fait la babysitter</item>
+    </one-of>
+
+    <tag>out.action._attributes.uri="http://127.0.0.1:8080/sarah/babysitter";</tag>
+  </rule> 
+</grammar>

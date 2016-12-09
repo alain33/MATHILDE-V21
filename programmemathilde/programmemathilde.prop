@@ -1,0 +1,9 @@
+{
+  "modules": { 
+    "programmemathilde": {
+      "description": "Plugin pour ouverture des programmes",
+      "chemin": "C://program files", 
+      "version": "0.2"
+    }
+  }
+}

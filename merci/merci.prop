@@ -1,0 +1,9 @@
+{
+  "modules" : { 
+    "merci"  : {
+      "description": "Sarah répond au remerciement",
+      "version"    : "1.0",
+	  "name"    : "mon chou"
+    }
+  }
+}

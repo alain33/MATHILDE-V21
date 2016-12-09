@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+
+  <strings>
+
+    <string id="32000">Fenêtres d'affichage</string>
+    <string id="32001">Fenêtre 1:</string>
+    <string id="32002">Fenêtre 2:</string>
+    <string id="32003">Fenêtre 3:</string>
+    <string id="32004">Fenêtre 4:</string>
+    <string id="32005">Fenêtre 5:</string>
+    <string id="32006">Fenêtre 6:</string>
+    <string id="32007">Fenêtre 7:</string>
+    <string id="32010">Largeur:</string>
+    <string id="32011">Hauteur:</string>
+    <string id="32012">Position X:</string>
+    <string id="32013">Position Y:</string>
+ 
+    <string id="33000">Configuration</string>
+    <string id="33003">Temps de rafraichissement (en millisecondes):</string>
+    <string id="33004">Activer la fermeture automatique des fenêtres:</string>
+    <string id="33005">Durée avant fermeture (en secondes):</string>
+	
+
+
+
+    
+  </strings>
+
+

@@ -1,0 +1,9 @@
+{
+  "modules": { 
+    "noubliezpas": {
+      "description": "Plugin pour n oubliez pas les paroles",
+      "version": "0.2"
+      
+    }
+  }
+}
