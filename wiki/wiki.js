@@ -41,23 +41,23 @@ request({ 'uri' : url,rejectUnauthorized: false, encoding: 'utf-8'}, function (e
     
 /////////// recherche sur wiki et dans url
 
-      request({'uri':'https://www.google.fr/search?q='+phrase1+'&ie=utf-8&oe=utf-8&gws_rd=cr&ei','headers':{'Accept-Charset': 'utf-8'}}, function (error, response, html) {
-              $ = cheerio.load(html);
-              url = $('.g .s cite').first().text().trim();
-               
-                if(count!=="stop"){
-                   
-                    console.log("ghjghjghghghjg111"+url)
-                   
-                          if(url.search('wikipedia.org')>-1){
-                            console.log("artung"+url)
-                            count="stop"
-                            req(url,count)
-                          }//fin if url
-                
-                }//fin if count!==stop
-              
-      });//fin request
+							      request({'uri':'https://www.google.fr/search?q='+phrase1+'&ie=utf-8&oe=utf-8&gws_rd=cr&ei','headers':{'Accept-Charset': 'utf-8'}}, function (error, response, html) {
+							              $ = cheerio.load(html);
+							              url = $('.g .s cite').first().text().trim();
+							               
+							                if(count!=="stop"){
+							                   
+							                    console.log("ghjghjghghghjg111"+url)
+							                   
+							                          if(url.search('wikipedia.org')>-1){
+							                            console.log("artung"+url)
+							                            count="stop"
+							                            req(url,count)
+							                          }//fin if url
+							                
+							                }//fin if count!==stop
+							              
+							      });//fin request
 
 //////////
 
@@ -83,7 +83,7 @@ function encart(phrase1){
                     phrase1=phrase1.replace(new RegExp("\\b" + " " + "\\b","gi"),"+");
                     phrase1=phrase1.replace(" à ","+à+");
                     phrase1=phrase1.replace(new RegExp(' ', 'ig'),"+")
-                    console.log(phrase1)
+                    console.log("-----"+phrase1)
                      proc = 'start chrome --new-window http://www.google.fr/search?q='+phrase1 ;
                     console.log(proc)
                     child=exec(proc);
@@ -99,10 +99,10 @@ callback({'tts' : " "}) ; return false
  
 } // fin if err
 
-  $ = require('cheerio').load(body, { xmlMode: true, ignoreWhitespace: true, lowerCaseTags: true }); 
+  $ = require('cheerio').load(body, { xmlMode: true, ignoreWhitespace: false, lowerCaseTags: true }); 
   	
   	//  SCRAPING
-requeste=function(){
+requeste=function(url){
 
   try {paragaphe1=$('#mw-content-text > p:nth-child(1)').text()}
     catch (Exception) {}
@@ -115,13 +115,13 @@ requeste=function(){
   try {paragaphe6=$('#mw-content-text > p:nth-child(5)').text()}
     catch (Exception) {}
 
-mafonction1();
+mafonction1(url);
 
  tempestString = paragaphe4;espace = " ";
 
 }//fin fnct requeste
 
-requeste();
+requeste(url);
 
 callback({'tts' : " "}) ; return false 
 
@@ -131,7 +131,7 @@ callback({'tts' : " "}) ; return false
 
 
 
-mafonction1=function(){paragaphe5=paragaphe1.length+paragaphe2.length+paragaphe3.length+paragaphe4.length+paragaphe6.length
+mafonction1=function(url){paragaphe5=paragaphe1.length+paragaphe2.length+paragaphe3.length+paragaphe4.length+paragaphe6.length
   
   if (paragaphe5==0){
 
@@ -168,30 +168,58 @@ mafonction1=function(){paragaphe5=paragaphe1.length+paragaphe2.length+paragaphe3
           }
       } //fin if             
    
-console.log('on envoie'+"111111111"+paragaphe1+"2222222222222"+paragaphe2+"333333333"+paragaphe3+"44444444444"+paragaphe4+"55555555555"+paragaphe6)
+console.log('on envoie:::::::::::::::::'+"111111111"+paragaphe1+"2222222222222"+paragaphe2+"333333333"+paragaphe3+"44444444444"+paragaphe4+"55555555555"+paragaphe6)
 
  dico=require(path.resolve('%CD%', './plugins/modules/mathildedico').replace('\\%CD%', ''))
 dico(paragaphe1+paragaphe2+paragaphe3+paragaphe4+paragaphe6)
 
- WikiMemoire(search);
+ WikiMemoire(search,url);
  callback({'tts' : " "}) ; return false
   
   }//fin else le wiki
 
 } //fin mafnct1
 
-function WikiMemoire(search){
-search=search.replace(new RegExp('\\+','ig')," ");console.log("rrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrr"+search)
+function WikiMemoire(search,url){console.log(search+"*****"+url)
+	
+clés=search
+	search=url
+search=search.replace(new RegExp('\\+','ig')," ")
 search=search.trim()
+search=search.replace(new RegExp('https://fr.wikipedia.org/wiki/','ig')," ");
+search=search.replace(new RegExp('[^0-9a-zA-Zéèàçù]', 'ig')," ")
+search=search.trim()
+console.log("rrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrr"+search)
   dir = path.resolve('%CD%', './plugins/mémoiredemathilde/wikimemoire/'+search+'.json').replace('\\%CD%', '');
  pathname = dir; data1='{"wiki":[]}';  fs = require('fs');
  objet1 = JSON.parse(data1); jsonStr1 = JSON.stringify(objet1);
  objet1.wiki.push(paragaphe1+paragaphe2+paragaphe3+paragaphe4+paragaphe6); data2 = JSON.stringify(objet1); 
 
-
-
     fs.writeFile(pathname, data2, function (err) {if (err) throw err;}) // ecrit dans le fichier courses l'objet + la nouvelle valeur
+
+
+
+
+// on ajout à phrase clés:
+clés=clés.replace(search," ")
+clés=clés.trim()
+console.log("la clés"+clés+"**")
+ filePathrea = path.resolve('%CD%', './plugins/mémoiredemathilde/phrasescles/phrasescles.json').replace('\\%CD%', '');
+    if(clés==!""){                        
+                                     fs.readFile(filePathrea, function(err,data){
+                               
+                                          objet = JSON.parse(data);jsonStr = JSON.stringify(objet);
+clés=clés.trim()
+                                                  objet.phrasescles.push(clés); new_jsonStr = JSON.stringify(objet);
+                                                  console.log("valeur rajoutée au json phrasescles & fini pour wiki "+clés)
+                                                  filePathphrasescles1 = path.resolve('%CD%', './plugins/mémoiredemathilde/phrasescles/phrasescles.json').replace('\\%CD%', '')
+                                                //  fs.writeFile(filePathphrasescles1,new_jsonStr)
+
+                                      })
+}
 callback({'tts' : " "}) ; return false
+
+//fin
 }//fin wikimemoire
 
 function TestPhrase(search,url){
@@ -213,9 +241,9 @@ function read(files,path1,query,longueurdir){
 
             for(i=0;i<longueurdir;i++){
                     data1=fs.readFileSync(path1+'/'+files[i]).toString(); objet = JSON.parse(data1)
-                    jsonStr = JSON.stringify(objet);
-
-                          if (jsonStr.search(new RegExp("\\b" + query + "\\b","gi"))>-1){
+                    jsonStr = JSON.stringify(objet);query=query.trim()
+console.log("*"+query+"*")
+                          if (jsonStr.search(new RegExp(query,"gi"))>-1){
                                     console.log('cela fait rapport à '+query);
                                     objetmatch = JSON.parse(datamatche); jsonStrmatch = JSON.stringify(objetmatch);
                                     objetmatch.datamatch.push(files[i]);
@@ -249,7 +277,7 @@ function ask1(question, texte,url) {
     {'answer':'age' }
     ], function(answer,phrase,match,wholeMatch) {
       
-        if (phrase=='non') { req(url); callback({'tts' : " "}) ; return false}
+        if (phrase.search('aucun')>-1) { req(url); callback({'tts' : " "}) ; return false}
 
         if (phrase!=='undefined') {
               try{
@@ -257,11 +285,11 @@ function ask1(question, texte,url) {
                   ScribeSpeak(objetparle.wiki[0],true);console.log('en memoire')
                   callback({'tts' : " "});return false
               }
-              catch (Exception) {
+              catch (Exception) {console.log(Exception)
                        exec = require('child_process').exec;
                       search=search.replace(new RegExp(' ', 'ig'),"+")
                        proc = 'start chrome --new-window http://www.google.fr/search?q='+search ;
-                      console.log(proc)
+                      console.log("errer "+proc)
                        child = exec(proc);
                        search=search.replace(new RegExp('/+', 'ig')," ")
 

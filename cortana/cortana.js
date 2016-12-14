@@ -24,14 +24,15 @@ SCRIBE.activePlugin('cortana');
 //////////////////////////////////////////////////
 ///////////////////////////////////////////////////
 //http://www.cnrtl.fr/synonymie/hier
-nomchercher="mes clés sont sur la table et ma voiture dans la rue"
+//nomchercher="mes clés sont sur la table et ma voiture dans la rue"
 nomchercher=data.reco
-dico=require('C:/Users/Administrateur/sarah/plugins/modules/mathildedico')
-testphrase = require('C:/Users/Administrateur/sarah/plugins/modules/testphrase')
+dico=require(path.resolve('%CD%', './plugins/modules/mathildedico').replace('\\%CD%', ''))
+testphrase = require(path.resolve('%CD%', './plugins/modules/testphrase').replace('\\%CD%', ''))
+console.log(testphrase(nomchercher))
 //re=
 dico(nomchercher)
 //synonyme = require('C:/Users/Administrateur/sarah/plugins/modules/synonyme')
-console.log(testphrase(nomchercher))
+///////////////////////////:console.log(testphrase(nomchercher))
   //synonyme(nomchercher,function(callback1){console.log("réponse : "+callback1)})
  
 
@@ -628,7 +629,8 @@ filePathrea = path.resolve('%CD%', './plugins/mémoiredemathilde/phrasescles/phr
                                 console.log('                 phrase connu : '+objet.phrasescles[j]+j)
                                 pointdepart=query.search(new RegExp(objet.phrasescles[j],"gi"))
                                 motsplugin=''
-                                    for(dd=longueurphrase+1; dd<(query.length);dd++){motsplugin=motsplugin+query[dd]}
+                                    for(dd=pointdepart+longueurphrase; dd<(query.length);dd++){motsplugin=motsplugin+query[dd]}
+                                    //for(dd=longueurphrase+1; dd<(query.length);dd++){motsplugin=motsplugin+query[dd]}
                                 //console.log('                        la recherche : '+motsplugin)
 // on retest
 //lis le nom des plugins
@@ -637,7 +639,7 @@ filePathrea = path.resolve('%CD%', './plugins/mémoiredemathilde/phrasescles/phr
                                 data5=fs.readFileSync(f5,'utf8').toString();
                                 objet5 = JSON.parse(data5);  longueur5 = objet5.nompluguine.length 
                                 names = motsplugin.toLowerCase();names=names.trim() ;nameList = names.trim().split(" ");
-                                console.log('on vérifie la présence de cela : '+names+' dans les plug')
+                                console.log('on vérifie la présence de cela en 2 : '+names+' dans les plug')
                                 //console.log(motsplugin)
                                 longueur1=(nameList.length)//nb de mots a rechercher
 console.log('name '+names)
