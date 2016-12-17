@@ -518,14 +518,7 @@ SCRIBE = SARAH.context.scribe;
 configcortana = config.modules.cortana;nommathilde = configcortana.nommathilde;//default
 console.log("mathilde s'appel : "+nommathilde)
 
-//on met un timeout pour eviter les freeze si trop de bruit
-tim = setTimeout(function() {//comptage++;console.log(comptage)
-							var proc = __nircmd + 'closeprocess chrome.exe'; 
-							//var child = exec(proc)
-							var proc = 'start chrome --new-window https://127.0.0.1:4300';
-							//var child = exec(proc)
-								
-	 }, 10000);//fin timeout
+
 
 
 
@@ -535,7 +528,7 @@ tim = setTimeout(function() {//comptage++;console.log(comptage)
 //
 
 //function PluginActif(){	
-attente=0
+
 try{
 	if (( data.reco.search(nommathilde,"gi") >-1)|| (data.reco.search("Siri")>-1)|| (data.reco.search(nommathilde,"gi")>-1)){
 		//SARAH.run('bruitmicro', { 'partielle' : "data.partial"})
